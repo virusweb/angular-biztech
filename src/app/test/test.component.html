@@ -1,0 +1,43 @@
+<div class="container mt-2">
+    <tabset>
+        <tab heading="Angular" class="mt-2" (selectTab)="getQuizData('angular')">
+            <div *ngFor="let qs of questions; let i = index">
+                <strong>{{ qs.questionText }}</strong>
+                <div *ngFor="let opt of qs.options; let oi = index">
+                    <p><input type="radio" name="{{i}}" [value]="oi" [(ngModel)]="ans[i]"><span
+                            class="ml-2">{{opt}}</span></p>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-success" (click)="submit(template);">Submit</button>
+            </div>
+        </tab>
+        <tab heading="Javascript" class="mt-2" (selectTab)="getQuizData('javascript')">
+            <div *ngFor="let qs of questions; let i = index">
+                <strong>{{ qs.questionText }}</strong>
+                <div *ngFor="let opt of qs.options; let oi = index">
+                    <p class="mt-1"><input type="radio" name="{{i}}" [value]="oi" [(ngModel)]="ans[i]"><span
+                            class="ml-2">{{opt}}</span></p>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-success" (click)="submit(template);">Submit</button>
+            </div>
+        </tab>
+    </tabset>
+</div>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Result of {{name}}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Total Questions : {{ total }}<br>
+        Correct Answers : {{ correct }}<br>
+        Wrong Answers : {{ wrong }}<br>
+        Un-Attempt : {{ unattempt }}
+    </div>
+</ng-template>

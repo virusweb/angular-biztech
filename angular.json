@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-biztech"
+    }
+  },
+  "defaultProject": "angular-biztech",
+  "cli": {
+    "analytics": "ca814bb7-7160-40ab-86a9-e193788d6afd"
+  }
 }
